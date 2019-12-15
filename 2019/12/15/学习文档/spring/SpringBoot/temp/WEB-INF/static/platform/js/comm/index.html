@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="$.extend({     StandardPost:function(url,args){         var target=$(&quot;#target&quot;,parent.document);         target.remove();         var form=$(&quot;&quot;),             input,             father=$(&quot;body&quot;,window.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://yoursite.com/2019/12/15/学习文档/spring/SpringBoot/temp/WEB-INF/static/platform/js/comm/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="$.extend({     StandardPost:function(url,args){         var target=$(&quot;#target&quot;,parent.document);         target.remove();         var form=$(&quot;&quot;),             input,             father=$(&quot;body&quot;,window.">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-11-29T11:00:34.493Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hexo">
+<meta name="twitter:description" content="$.extend({     StandardPost:function(url,args){         var target=$(&quot;#target&quot;,parent.document);         target.remove();         var form=$(&quot;&quot;),             input,             father=$(&quot;body&quot;,window.">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-学习文档/spring/SpringBoot/temp/WEB-INF/static/platform/js/comm" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/12/15/学习文档/spring/SpringBoot/temp/WEB-INF/static/platform/js/comm/" class="article-date">
+  <time datetime="2019-12-15T05:32:19.148Z" itemprop="datePublished">2019-12-15</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        $.extend({
+    StandardPost:function(url,args){
+        var target=$("#target",parent.document);
+        target.remove();
+        var form=$("<form method="post" id="target"></form>"),
+            input,
+            father=$("body",window.parent.document);
+        $.each(args,function(key,value){
+            input=$("<input type="hidden">");
+            input.attr({"name":key});
+            input.val(value);
+            form.append(input);
+        })
+        form.appendTo(father);
+        deleteElement(url);
+       // window.parent.popOut.location.href=url;
+    },
+
+    Parame:function(){
+		var url=window.location.href;
+        var start = url.indexOf("?");
+		var parames=url.substring(start+1,url.length).split("&");
+		var obj={};
+        if(start==-1 || !parames[0]){
+            return obj;
+        } 
+		for(var i=0;i<parames.length;i++){ var parame="parames[i].split("=");" key="parame[0];" value="parame[1];" obj[key]="value;" } return obj; }, parameform:function(){ obj="{};" target="$("#target",parent.document);" if(!target[0]){ target.find("input").each(function(){ }) target.remove(); arraylist:function(obj,list,model){ if(list){ for(j in list){ html="model.html();" regexps="html.match(" \{.+?[^\}]\} g); for(i regexps){ str="regexps[i]+"";" obj.append(html); parameserilize:function(args){ parames="args.split("&");" if(!parames[0]){ for(var i="0;i<parames.length;i++){" tounicode:function(str){ escape(str).tolocalelowercase().replace( %u gi,'\\u'); statistics:function(type,category,linkids,source,classify){ obj.type="type;" obj.category="category;" obj.linkids="linkids;" obj.source="source;" obj.classify="classify;" $.ajax({ url:' zt webexhibition_statistics.jspx',cache:false,async:true,type:'post', data:obj, success:function(data){ relogin:function(){ webexhibition_relogin.jspx',cache:false,async:false,type:'get', r="eval("("" + data ")"); if(!r.flag){ parent.window.open(" webexhibition_toindex.jspx","_self"); indexname:function(name,url,type){ window.parent.myframename.location.href="url;" if(type="=1){" $(".barline .text1",parent.document).each(function(){ if($(this).text()="=name){" $(this).trigger("click"); }); }else .text2 li",parent.document).each(function(){ if($(this).text().indexof(name)!="-1){" parent.document.getelementbyid('tanmu').style.display="none" ; showalert:function(msg,type){ url="/SpringBootWebTest/platform/alert.html?" $.standardpost(url,{'content':msg,'state':type="=0?'failure':'success'});" checklogin:function(){ webcentralapartmen_checklogin.jspx',cache:false,async:false,type:'get', esf platform login.html","_self"); standard:function(id,args){ form="$("<form" method="post" id=""+id+"">"),
+            input,
+            father=$("body",window.parent.document);
+        $.each(args,function(key,value){
+            input=$("<input type="hidden">");
+            input.attr({"name":key});
+            input.val(value);
+            form.append(input);
+        })
+        form.appendTo(father);
+    },
+    ParameFormByid:function(id){
+        var obj={};
+        var target=$("#"+id,parent.document);
+        if(!target[0]){
+            return obj;
+        }
+		target.find("input").each(function(){
+            var key = $(this).attr("name");
+            var value = $(this).val();
+            obj[key]=value;
+        })
+        target.remove();
+		return obj;
+    },
+    // 转为unicode 编码 
+    encodeUnicode:function(str) { 
+        var res = []; 
+        for ( var i=0; i<str.length; i++ ) { res[i]="(" "00" + str.charcodeat(i).tostring(16) ).slice(-4); } return "\\u" res.join("\\u"); }, 解码 decodeunicode:function(str) str="str.replace(/\\/g," "%"); 转换中文  str="unescape(str);" 将其他受影响的转换回原来 "\\"); 对网址的链接进行处理 ""); str; bindinput:function(){ chineseflag="true;" $("input").bind({ "input":function(){ if(chineseflag){ if(!$(this).val()){ return; var limitdata="$(this).attr("limitdata");" limitstr="$(this).attr("limitstr");" v1="0;" v2="0;" v="0;" iserror="false" ; if(limitdata){ if(! ^\d+\.?\d*$ .test($(this).val())){ $(this).val($(this).val().substring(0,$(this).val().length-1)); if((v+'').length> v1){
+                            iserror = true;
+                        }
+
+                        if(v2==0){
+                            if(/\./.test($(this).val()) || iserror){
+                                $(this).val($(this).val().substring(0,$(this).val().length-1));
+                                return;
+                            }
+                            return;
+                        }else{
+
+                            if(/\./.test($(this).val())){
+                                v = $(this).val().match(/\d+$/);
+                                if(v){
+                                    if((v+'').length > v2){
+                                        $(this).val($(this).val().substring(0,$(this).val().length-1));
+                                        return;
+                                    }
+                                }
+                            }else{
+                                if(iserror){
+                                    $(this).val($(this).val().substring(0,$(this).val().length-1));
+                                    return;
+                                }
+                            }
+                        }
+                    }else if(limitstr){
+                        v1 = parseInt(limitstr);
+                        if($(this).val().length > v1){
+                            $(this).val($(this).val().substring(0,$(this).val().length-1));
+                            return;
+                        }
+                    }
+                }
+			},
+			'change':function(){
+				var limitdata = $(this).attr("limitdata");
+				var limitstr = $(this).attr("limitstr");
+                var v1 = 0;
+                var temp = $(this).attr("style");
+                if(!temp){
+                    temp = "";
+                }
+				if(limitdata){
+					if(!/^\d+$/.test($(this).val()) && !/^\d+\.\d+$/.test($(this).val())){
+                        $(this).attr('style',temp+"border-color:red;");
+                        $.showAlert("请输入整数或者完整的浮点数",0);
+						return;
+					}
+				}else if(limitstr){
+					v1 = parseInt(limitstr);
+					if($(this).val().length > v1){
+                        $(this).attr('style',temp+"border-color:red;");
+                        $.showAlert("输入字数超出限制数："+v1,0);
+						return;
+					}
+				}
+			},'focus':function(){
+                var temp = $(this).attr("style");
+                if(temp && temp.indexOf('border-color:red;')!=-1){
+                    $(this).attr('style',temp.replace("border-color:red;",""));
+                }
+            },
+			"compositionstart":function(){
+				chineseFlag=false;
+			},"compositionend":function(){
+				chineseFlag=true;
+			}
+		})
+    }
+});
+
+//<div style="display:none;" class="statistics" type="2" category="4" classify="1" linkid="<s:property value=" fwid">"></div>
+//<div style="display:none;" class="statistics" type="2" category="4" classify="2" linkid="${ssh.fwid?c!" "}"></div>
+function statistics_pc(type,category,source,classify){
+    //*moon* 租赁
+    var linkids='';
+    $(".statistics").each(function(){
+        var type_right= parseInt($(this).attr("type"));
+        var category_right= parseInt($(this).attr("category"));
+        var classify_right= parseInt($(this).attr("classify"));
+        if(type_right == type && category_right == category && classify_right == classify){
+            linkids+=$(this).attr("linkid")+",";
+        }
+    })
+    if(linkids.length>0){
+        linkids = linkids.substring(0,linkids.length-1);
+        $.Statistics(type,category,linkids,source,classify);
+    }
+}
+
+function deleteElement(url){
+    window.parent.myframepopout(url);
+}
+
+</str.length;></parames.length;i++){>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/12/15/学习文档/spring/SpringBoot/temp/WEB-INF/static/platform/js/comm/" data-id="ck46kswih000u64ss4fvzjdei" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/12/15/学习文档/spring/SpringBoot/temp/WEB-INF/static/platform/js/jquery-1.9.1/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/12/15/学习文档/spring/SpringBoot/temp/WEB-INF/static/platform/css/font/iconfont/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/12/15/raids/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/12/15/学习文档/项目管理/github/github学习/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/12/15/学习文档/项目管理/git/idea-git配置/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/12/15/学习文档/项目管理/git/git学习文档/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/12/15/学习文档/框架/SOA架构和微服务架构的区别/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

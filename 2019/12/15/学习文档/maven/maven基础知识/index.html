@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="一、maven坐标Maven坐标为各种构件引入了秩序，任何一个构件都必须明确定义自己的坐标，而一组Maven坐标是通过一些元素定义的，他们是groupId、artifactId、version、packaging、classifier。先看一组坐标定义，如下： 1234&amp;lt;groupId&amp;gt;org.sonatype.nexus&amp;lt;/groupId&amp;gt;&amp;lt;artifactId&amp;g">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://yoursite.com/2019/12/15/学习文档/maven/maven基础知识/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="一、maven坐标Maven坐标为各种构件引入了秩序，任何一个构件都必须明确定义自己的坐标，而一组Maven坐标是通过一些元素定义的，他们是groupId、artifactId、version、packaging、classifier。先看一组坐标定义，如下： 1234&amp;lt;groupId&amp;gt;org.sonatype.nexus&amp;lt;/groupId&amp;gt;&amp;lt;artifactId&amp;g">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-11-29T10:37:46.534Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hexo">
+<meta name="twitter:description" content="一、maven坐标Maven坐标为各种构件引入了秩序，任何一个构件都必须明确定义自己的坐标，而一组Maven坐标是通过一些元素定义的，他们是groupId、artifactId、version、packaging、classifier。先看一组坐标定义，如下： 1234&amp;lt;groupId&amp;gt;org.sonatype.nexus&amp;lt;/groupId&amp;gt;&amp;lt;artifactId&amp;g">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-学习文档/maven/maven基础知识" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/12/15/学习文档/maven/maven基础知识/" class="article-date">
+  <time datetime="2019-12-15T05:32:17.060Z" itemprop="datePublished">2019-12-15</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="一、maven坐标"><a href="#一、maven坐标" class="headerlink" title="一、maven坐标"></a>一、maven坐标</h3><p>Maven坐标为各种构件引入了秩序，任何一个构件都必须明确定义自己的坐标，而一组Maven坐标是通过一些元素定义的，他们是groupId、artifactId、version、packaging、classifier。先看一组坐标定义，如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;groupId&gt;org.sonatype.nexus&lt;/groupId&gt;</span><br><span class="line">&lt;artifactId&gt;nexus-indexer&lt;/artifactId&gt;</span><br><span class="line">&lt;version&gt;2.0.0&lt;/version&gt;</span><br><span class="line">&lt;packaging&gt;jar&lt;/packaging&gt;</span><br></pre></td></tr></table></figure>
+
+<p>这是nexus-indexer的坐标定义，nexus-indexer是一个对Maven仓库编篡索引并提供搜索的类库，他是Nexus项目的一个子模块。上述代码片段中，其坐标分别为groupId:org.sonatype.nexus、artifactId:nexus-indexer、version:2.0.0.、packaging:jar，没有classifier。下面详细解释一下各个坐标元素。</p>
+<h1 id="groupId"><a href="#groupId" class="headerlink" title="groupId"></a>groupId</h1><p>定义当前Maven项目隶属的实际项目。首先，Maven项目和实际项目不一定是一对一的关系。比如SpringFramework这一实际项目，其对应的Maven项目会有很多，如spring-core、spring-context等。这是由于Maven中模块的概念，因此，一个实际项目往往会被划分成很多模块。其次，groupId不应该对应项目隶属的组织或公司。原因很简单，一个组织下会有很多实际项目，如果groupId只定义到组织级别，而后面我们会看到，artifactId只能定义Maven项目（模块），那么实际项目这个层将难以定义。最后，groupId的表示方式与Java包名的表示方法类似，通常与域名反向一一对应。上例中，groupId为org.sonatype.nexus，org.sonatype表示Sonatype公司建立的一个非营利性组织，nexus表示Nexus这一实际项目，该groupId与域名nexus.sonatype.org对应。</p>
+<h1 id="artifactId"><a href="#artifactId" class="headerlink" title="artifactId"></a>artifactId</h1><p>该元素定义实际项目中的一个Maven项目（模块），推荐的做法是使用实际项目名称作为artifactId的前缀。比如上例中的artifactId是nexus-indexer，使用了实际项目名nexus作为前缀，这样做的好处是方便寻找实际构件。在默认情况下，Maven生成的构件，其文件名会以artifactId作为开头，如nexus-indexer-2.0.0.jar，使用实际项目名称作为前缀之后，就能方便从一个lib文件夹中找到某个项目的一组构件。考虑有5个项目，每个项目都有一个core模块，如果没有前缀，我们会看到很多core-1.2.jar这样的文件，加上实际项目名前缀之后，便能很容易区分foo-core-1.2.jar、bar-core-1.2.jar……</p>
+<h1 id="version"><a href="#version" class="headerlink" title="version"></a>version</h1><p>该元素定义Maven项目当前所处的版本，如上例中nexus-indexer的版本是2.0.0。需要注意的是，Maven定义了一套完成的版本规范，以及快照（SNAPSHOT）的概念。</p>
+<h1 id="packaging"><a href="#packaging" class="headerlink" title="packaging"></a>packaging</h1><p>该元素定义Maven项目的打包方式。首先，打包方式通常与所生成构件的文件扩展名对应，如上例中packaging为jar，最终的文件名为nexus-indexer-2.0.0.jar，而使用war打包方式的Maven项目，最终生成的构件会有一个.war文件，不过这不是绝对的。其次，打包方式会影响到构建的生命周期，比如jar打包和war打包会使用不同的命令。最后，当不定义packaging的时候，Maven会使用默认值jar。</p>
+<h1 id="classifier"><a href="#classifier" class="headerlink" title="classifier"></a>classifier</h1><p>该元素用来帮助定义构建输出的一些附属构建。附属构件与主构件对应，如上例中的主构件是nexus-indexer-2.0.0.jar，该项目可能还会通过使用一些插件生成如nexus-indexer-2.0.0-javadoc.jar、nexus-indexer-2.0.0-sources.jar这样一些附属构建，其包含了Java文档和源代码。这时候，javadoc和sources就是这两个附属构建的classifier。这样，附属构建也就拥有了自己唯一的坐标。还有一个关于classifier的典型例子是TestNG，TestNG的主构件是基于Java1.4平台的，而他又提供了一个classifier为jdk5的附属构件。注意，不能直接定义项目的classifier，因为附属构建不是项目直接默认生成地，而是由附加的插件帮助生成。</p>
+<p>上述5个元素中，groupId、artifactId、version是必须定义的，packaging是可选的（默认为jar），而classifier是不能直接定义的。</p>
+<p>同时，项目构建的文件名和坐标相对应的，一般的规则为artifactId-version [-classifier] .packaging，[-classifier]表示可选。比如上例nexus-indexer的主构件为nexus-indexer-2.0.0.jar，附属构建有nexus-indexer-2.0.0-javaodc.jar。这里还要强调一点是，packaging 并非一定与构件扩展名对应，比如packaging为maven-plugin的构件扩展名为jar。</p>
+<p>此外，Maven仓库的布局也是基于Maven坐标。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/12/15/学习文档/maven/maven基础知识/" data-id="ck46kswf4000a64ssqc3e8sph" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/12/15/学习文档/maven/Maven详解（五）------ 坐标的概念以及依赖管理/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/12/15/学习文档/mysql数据库与sql优化/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/12/15/raids/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/12/15/学习文档/项目管理/github/github学习/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/12/15/学习文档/项目管理/git/idea-git配置/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/12/15/学习文档/项目管理/git/git学习文档/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/12/15/学习文档/框架/SOA架构和微服务架构的区别/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="一、执行lua脚本使用Lua脚本的好处： 减少网络开销。可以将多个请求通过脚本的形式一次发送，减少网络时延。原子操作。redis会将整个脚本作为一个整体执行，中间不会被其他命令插入。因此在编写脚本的过程中无需担心会出现竞态条件，无需使用事务。复用。客户端发送的脚本会永久存在redis中，这样，其他客户端可以复用这一脚本而不需要使用代码完成相同的逻辑。 基本使用命令格式：EVAL script nu">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://yoursite.com/2019/12/15/学习文档/redis/Redis应用/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="一、执行lua脚本使用Lua脚本的好处： 减少网络开销。可以将多个请求通过脚本的形式一次发送，减少网络时延。原子操作。redis会将整个脚本作为一个整体执行，中间不会被其他命令插入。因此在编写脚本的过程中无需担心会出现竞态条件，无需使用事务。复用。客户端发送的脚本会永久存在redis中，这样，其他客户端可以复用这一脚本而不需要使用代码完成相同的逻辑。 基本使用命令格式：EVAL script nu">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-12-12T08:50:44.825Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hexo">
+<meta name="twitter:description" content="一、执行lua脚本使用Lua脚本的好处： 减少网络开销。可以将多个请求通过脚本的形式一次发送，减少网络时延。原子操作。redis会将整个脚本作为一个整体执行，中间不会被其他命令插入。因此在编写脚本的过程中无需担心会出现竞态条件，无需使用事务。复用。客户端发送的脚本会永久存在redis中，这样，其他客户端可以复用这一脚本而不需要使用代码完成相同的逻辑。 基本使用命令格式：EVAL script nu">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-学习文档/redis/Redis应用" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/12/15/学习文档/redis/Redis应用/" class="article-date">
+  <time datetime="2019-12-15T05:32:18.336Z" itemprop="datePublished">2019-12-15</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="一、执行lua脚本"><a href="#一、执行lua脚本" class="headerlink" title="一、执行lua脚本"></a>一、执行lua<strong>脚本</strong></h1><p>使用Lua脚本的好处：</p>
+<p>减少网络开销。可以将多个请求通过脚本的形式一次发送，减少网络时延。<br>原子操作。redis会将整个脚本作为一个整体执行，中间不会被其他命令插入。因此在编写脚本的过程中无需担心会出现竞态条件，无需使用事务。<br>复用。客户端发送的脚本会永久存在redis中，这样，其他客户端可以复用这一脚本而不需要使用代码完成相同的逻辑。</p>
+<p>基本使用<br>命令格式：<br>EVAL script numkeys key [key …] arg [arg …]<br>说明：</p>
+<p>script是第一个参数，为Lua 5.1脚本。该脚本不需要定义Lua函数（也不应该）。<br>第二个参数numkeys指定后续参数有几个key。<br>key [key …]，是要操作的键，可以指定多个，在lua脚本中通过KEYS[1], KEYS[2]获取<br>arg [arg …]，参数，在lua脚本中通过ARGV[1], ARGV[2]获取。<br>简单实例：<br>127.0.0.1:6379&gt; eval “return ARGV[1]” 0 100<br>“100”<br>127.0.0.1:6379&gt; eval “return {ARGV[1],ARGV[2]}” 0 100 101<br>1) “100”<br>2) “101”<br>127.0.0.1:6379&gt; eval “return {KEYS[1],KEYS[2],ARGV[1],ARGV[2]}” 2 key1 key2 first second<br>1) “key1”<br>2) “key2”<br>3) “first”<br>4) “second”</p>
+<p>127.0.0.1:6379&gt; eval “redis.call(‘SET’, KEYS[1], ARGV[1]);redis.call(‘EXPIRE’, KEYS[1], ARGV[2]); return 1;” 1 test 10 60<br>(integer) 1<br>127.0.0.1:6379&gt; ttl test<br>(integer) 59<br>127.0.0.1:6379&gt; get test<br>“10”<br>注：</p>
+<p>{}在lua里是指数据类型table，类似数组。<br>redis.call()可以调用redis命令。<br>命令行里使用<br>如果直接使用redis-cli命令，格式会有点不一样：<br>redis-cli –eval lua_file key1 key2 , arg1 arg2 arg3<br>注意的地方：</p>
+<p>eval 后面参数是lua脚本文件,.lua后缀<br>不用写numkeys，而是使用,隔开。注意,前后有空格。<br>示例：</p>
+<p>incrbymul.lua<br>local num = redis.call(‘GET’, KEYS[1]);  </p>
+<p>if not num then<br>    return 0;<br>else<br>    local res = num * ARGV[1];<br>    redis.call(‘SET’,KEYS[1], res);<br>    return res;<br>end<br>命令行运行：<br>$ redis-cli –eval incrbymul.lua lua:incrbymul , 8<br>(integer) 0<br>$ redis-cli incr lua:incrbymul<br>(integer) 1<br>$ redis-cli –eval incrbymul.lua lua:incrbymul , 8<br>(integer) 8<br>$ redis-cli –eval incrbymul.lua lua:incrbymul , 8<br>(integer) 64<br>$ redis-cli –eval incrbymul.lua lua:incrbymul , 2<br>(integer) 128<br>由于redis没有提供命令可以实现将一个数原子性的乘以N倍，这里我们就用Lua脚本实现了，运行过程中确保不会被其它客户端打断。</p>
+<h3 id="整合Springboot"><a href="#整合Springboot" class="headerlink" title="整合Springboot:"></a>整合Springboot:</h3><p>1、选择redisTemplate序列化方式<br>首先，创建一个redisTemplate,具体代码就不说了，这个比较简单。要注意的是，需要设置redisTemplate的序列化方式，springBoot默认是基于java jdk的序列化。通过这种序列化后的参数传到Lua脚本是，是无法正常打印到redis日志的，会出现乱码，而且参数如果传的是一个Map或List的话，不方便解析。并且这种序列化占用的字节比较大。所以改成JSON序列化，用FastJson实现。</p>
+<p>2、在springboot中，是用 DefaultRedisScript 类来加载脚本的，并设置相应的数据类型来接收lua脚本返回的数据，这个泛型类在使用时设置泛型是什么类型，脚本返回的结果就是用什么类型接收。注意，该类只接收4种类型的返回类型 Boolean List Long deserialized</p>
+<p>3、在lua脚本中，有两个全局的变量，是用来接收redis应用端传递的键值和其它参数的，分别为KEYS、ARGV。</p>
+<p>在应用端传递给KEYS时是一个数组列表，在lua脚本中通过索引方式获取数组内的值。</p>
+<p>在应用端，传递给ARGV的参数比较灵活，可以是多个独立的参数，但对应到Lua脚本中是，统一用ARGV这个数组接收，获取方式也是通过数组下标获取</p>
+<p>4、代码中，redis.log()函数向运日志中输出信息，这里要注意一下，函数里面设置的日志级别要和redis.conf配置文件中设置的日志级别一样才能正常打印到文件，这里我是设置成了deubg级别。这里可设置的级别有4种，分别如下：</p>
+<p>redis.LOG_DEBUG<br>redis.LOG_VERBOSE<br>redis.LOG_NOTICE<br>redis.LOG_WARNING<br>在应用端，我们设置接收返回的数据类型是List，所以在Lua脚本中，返回的类型用table与之对应，并且放到table变量中的内容，得是字符串，应用端才能通过反序列化，正常解析。</p>
+<h1 id="二、常用场景"><a href="#二、常用场景" class="headerlink" title="二、常用场景"></a>二、常用场景</h1><p>redis应用场景总结redis平时我们用到的地方蛮多的，下面就了解的应用场景做个总结：</p>
+<p>1、热点数据的缓存<br>由于redis访问速度块、支持的数据类型比较丰富，所以redis很适合用来存储热点数据，另外结合expire，我们可以设置过期时间然后再进行缓存更新操作，这个功能最为常见，我们几乎所有的项目都有所运用。</p>
+<p>2、限时业务的运用<br>redis中可以使用expire命令设置一个键的生存时间，到时间后redis会删除它。利用这一特性可以运用在限时的优惠活动信息、手机验证码等业务场景。</p>
+<p>3、计数器相关问题<br>redis由于incrby命令可以实现原子性的递增，所以可以运用于高并发的秒杀活动、分布式序列号的生成、具体业务还体现在比如限制一个手机号发多少条短信、一个接口一分钟限制多少请求、一个接口一天限制调用多少次等等。</p>
+<p>4、排行榜相关问题<br>关系型数据库在排行榜方面查询速度普遍偏慢，所以可以借助redis的SortedSet进行热点数据的排序。</p>
+<p>在奶茶活动中，我们需要展示各个部门的点赞排行榜， 所以我针对每个部门做了一个SortedSet,然后以用户的openid作为上面的username,以用户的点赞数作为上面的score, 然后针对每个用户做一个hash,通过zrangebyscore就可以按照点赞数获取排行榜，然后再根据username获取用户的hash信息，这个当时在实际运用中性能体验也蛮不错的。</p>
+<p>? 5、分布式锁<br>这个主要利用redis的setnx命令进行，setnx：”set if not exists”就是如果不存在则成功设置缓存同时返回1，否则返回0?，这个特性在俞你奔远方的后台中有所运用，因为我们服务器是集群的，定时任务可能在两台机器上都会运行，所以在定时任务中首先 通过setnx设置一个lock，如果成功设置则执行，如果没有成功设置，则表明该定时任务已执行。 当然结合具体业务，我们可以给这个lock加一个过期时间，比如说30分钟执行一次的定时任务，那么这个过期时间设置为小于30分钟的一个时间 就可以，这个与定时任务的周期以及定时任务执行消耗时间相关。</p>
+<p>当然我们可以将这个特性运用于其他需要分布式锁的场景中，结合过期时间主要是防止死锁的出现。</p>
+<p>6、延时操作<br>这个目前我做过相关测试，但是还没有运用到我们的实际项目中，下面我举个该特性的应用场景。 比如在订单生产后我们占用了库存，10分钟后去检验用户是够真正购买，如果没有购买将该单据设置无效，同时还原库存。 由于redis自2.8.0之后版本提供Keyspace Notifications功能，允许客户订阅Pub/Sub频道，以便以某种方式接收影响Redis数据集的事件。 所以我们对于上面的需求就可以用以下解决方案，我们在订单生产时，设置一个key，同时设置10分钟后过期， 我们在后台实现一个监听器，监听key的实效，监听到key失效时将后续逻辑加上。 当然我们也可以利用rabbitmq、activemq等消息中间件的延迟队列服务实现该需求。</p>
+<p>7、分页、模糊搜索<br>redis的set集合中提供了一个zrangebylex方法，语法如下：</p>
+<p>ZRANGEBYLEX key min max [LIMIT offset count]</p>
+<p>通过ZRANGEBYLEX zset - + LIMIT 0?10 可以进行分页数据查询，其中-?+表示获取全部数据</p>
+<p>zrangebylex key min max 这个就可以返回字典区间的数据，利用这个特性可以进行模糊查询功能，这个也是目前我在redis中发现的唯一一个支持对存储内容进行模糊查询的特性。</p>
+<p>前几天我通过这个特性，对学校数据进行了模拟测试，学校数据60万左右，响应时间在700ms左右，比mysql的like查询稍微快一点，但是由于它可以避免大量的数据库io操作，所以总体还是比直接mysql查询更利于系统的性能保障。</p>
+<p>8、点赞、好友等相互关系的存储<br>Redis set对外提供的功能与list类似是一个列表的功能，特殊之处在于set是可以自动排重的，当你需要存储一个列表数据，又不希望出现重复数据时，set是一个很好的选择，并且set提供了判断某个成员是否在一个set集合内的重要接口，这个也是list所不能提供的。 又或者在微博应用中，每个用户关注的人存在一个集合中，就很容易实现求两个人的共同好友功能。</p>
+<p>这个在奶茶活动中有运用，就是利用set存储用户之间的点赞关联的，另外在点赞前判断是否点赞过就利用了sismember方法，当时这个接口的响应时间控制在10毫秒内，十分高效。</p>
+<p>9、队列<br>由于redis有list push和list pop这样的命令，所以能够很方便的执行队列操作。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/12/15/学习文档/redis/Redis应用/" data-id="ck46kswf7000c64ss4nazd0z8" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/12/15/学习文档/spring/SpringBoot/classpath和classpath区别：/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/12/15/学习文档/redis/redis 实现锁机制/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/12/15/raids/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/12/15/学习文档/项目管理/github/github学习/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/12/15/学习文档/项目管理/git/idea-git配置/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/12/15/学习文档/项目管理/git/git学习文档/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/12/15/学习文档/框架/SOA架构和微服务架构的区别/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

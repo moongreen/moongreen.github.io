@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="好找房-全能经纪人平台 	 	 	 	  	  	    	 		 		 			动态列表 		 	 	 	 	 		 		 			 			筛选 		 		 		 		添加 		 		 		 			 				id 				name 				操作 			 		 		 		 			 			 		 	 	 			 				{id} 				{name} 				{opt}">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://yoursite.com/2019/12/15/学习文档/spring/SpringBoot/temp/WEB-INF/templates/platform/userlist/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="好找房-全能经纪人平台 	 	 	 	  	  	    	 		 		 			动态列表 		 	 	 	 	 		 		 			 			筛选 		 		 		 		添加 		 		 		 			 				id 				name 				操作 			 		 		 		 			 			 		 	 	 			 				{id} 				{name} 				{opt}">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-11-29T11:21:49.935Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hexo">
+<meta name="twitter:description" content="好找房-全能经纪人平台 	 	 	 	  	  	    	 		 		 			动态列表 		 	 	 	 	 		 		 			 			筛选 		 		 		 		添加 		 		 		 			 				id 				name 				操作 			 		 		 		 			 			 		 	 	 			 				{id} 				{name} 				{opt}">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-学习文档/spring/SpringBoot/temp/WEB-INF/templates/platform/userlist" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/12/15/学习文档/spring/SpringBoot/temp/WEB-INF/templates/platform/userlist/" class="article-date">
+  <time datetime="2019-12-15T05:32:19.202Z" itemprop="datePublished">2019-12-15</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+	<meta charset="utf-8"> 
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<meta name="renderer" content="webkit">
+	<meta name="renderer" content="ie-stand">
+	<meta name="renderer" content="webkit|ie-comp|ie-stand">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>好找房-全能经纪人平台</title>
+	<meta name="keywords" content>
+	<meta name="description" content>
+	<link rel="stylesheet" href="/SpringBootWebTest/platform/css/base.css">
+	<script src="/SpringBootWebTest/platform/js/jquery-1.9.1.js"></script> 
+	<script src="/SpringBootWebTest/platform/js/jquery.SuperSlide.2.1.1.js"></script> 
+	<script src="/SpringBootWebTest/platform/js/comm.js"></script> 
+</head>
+<body class="innerCont">
+	<div class="pad32">
+		<div class="h20"></div>
+		<div class="clearfix line28">
+			<div class="f14 f_gray4A bold fl">动态列表</div>
+		</div>
+	</div>
+	<div class="h20" style="border-bottom:1px solid #F6F6F6;"></div>
+	<div class="h30"></div>
+	<div class="pad32">
+		<form id="initform">
+		<div class="searchB2 clearfix fl">
+			<input class="fl" type="text" placeholder="请输入关键字搜索" name="keywords">
+			<div class="searchButton fl">筛选</div>
+		</div>
+		<input type="hidden" id="page" value="0">
+		</form>
+		<a class="addRole fr" href="/SpringBootWebTest/user/touserinfo">添加</a>
+		<div class="clear"></div>
+		<div class="h30"></div>
+		<table class="allTable" cellpadding="0" cellspacing="0">
+			<tr>
+				<th>id</th>
+				<th>name</th>
+				<th>操作</th>
+			</tr>
+		</table>
+		<div class="h30"></div>
+		<div style="width:100%;text-align: center;">
+			<div class="page" id="pageinfo" style="display:none;">
+			</div>
+		</div>
+	</div>
+	<table id="model" style="display:none;">
+			<tr>
+				<td>{id}</td>
+				<td>{name}</td>
+				<td>{opt}</td>
+			</tr>
+		</table>
+</body>
+<script type="text/javascript">
+	$(".checkBox").click(function(){
+		if($(this).parent().hasClass("hover")){
+			$(this).parent().removeClass("hover");
+		}else{
+			$(this).parent().addClass("hover");
+		}
+		
+	})
+	
+	function jump(url){
+		window.parent.popOut.location.href =url;
+		parent.document.getElementById('tanmu').style.display="block";
+	}
+//	排序
+	$(".order").click(function(){
+		if($(this).parent().hasClass("hover")){
+			$(this).parent().removeClass("hover");
+			$(this).parent().addClass("hover2");
+		}else if($(this).parent().hasClass("hover2")){
+			$(this).parent().removeClass("hover2");
+		}else{
+			$(this).parent().addClass("hover");
+		}
+	});
+	resize();
+	function resize(){
+		var ifm=parent.document.getElementById('mainiframe');
+        ifm.height=document.body.clientHeight;
+	}
+	
+	/*tab切换*/
+	var n = 20;
+	for ( var i = 1; i <= n; i++) {
+		switchtag2(i);
+	}
+	function switchtag2(x) {
+		$(document).ready(function() {
+			$("#myCont" + x + " > div:not(:first)").hide();
+			var myLi = $("#myTop" + x + " > ul > li");
+			var myDiv = $("#myCont" + x + " > div");
+			myLi.each(function(i) {
+				$(this).click(function() {
+					myLi.removeClass("hover");
+					$(this).addClass("hover");
+					myDiv.hide();
+					myDiv.eq(i).show();
+					resize();
+				})
+			})
+		})
+	}
+	
+	$(function(){
+		showlist();
+		
+		$(".searchButton").click(function(){
+			showlist();
+		})
+	})
+
+	function showlist(){
+		$.ajax({
+			url:'/SpringBootWebTest/user/selectList',cache:false,async:true,type:'post',
+			data:$("#initform").serialize(),
+			success:function(data){
+				var r = eval('('+data+')');
+				var list=[];
+				var pageinfo=r.pageinfo;
+				list=r.list;
+				$(".allTable > tbody > tr:gt(0)").remove();
+				$.ArrayList($(".allTable > tbody"),list,$("#model > tbody"));
+				var info=$(pageinfo);
+				info.removeClass();
+				info.each(function(){
+					if($(this).html()=="上一页"){
+						$(this).addClass("first");
+					}
+
+					if($(this).html()=="下一页"){
+						$(this).addClass("end");
+					}
+
+					if($(this).html()==$("#page").val()){
+						$(this).addClass("hover");
+					}
+				})
+				$("#pageinfo").html("");
+				$("#pageinfo").append(info);
+				$("#pageinfo").show();				
+				resize();
+				}
+		})
+	}
+
+	function doPage(page){
+		$("#page").val(page);
+		showlist();
+	}
+</script>
+</html>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/12/15/学习文档/spring/SpringBoot/temp/WEB-INF/templates/platform/userlist/" data-id="ck46kswic000s64ssg0ohki5j" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/12/15/学习文档/spring/SpringData/JPA/注解/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/12/15/学习文档/spring/SpringBoot/temp/WEB-INF/templates/platform/userinfo/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/12/15/raids/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/12/15/学习文档/项目管理/github/github学习/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/12/15/学习文档/项目管理/git/idea-git配置/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/12/15/学习文档/项目管理/git/git学习文档/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/12/15/学习文档/框架/SOA架构和微服务架构的区别/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
